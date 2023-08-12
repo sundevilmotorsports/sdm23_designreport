@@ -1,0 +1,112 @@
+\documentclass[12pt, notitlepage]{report}
+\input{preamble.tex}
+
+
+%\pagenumbering{roman}
+\makeglossaries
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vfill
+    \textbf{\Huge SDM-23 Data Acquisition}\vspace{1em}\\
+    \textbf{\Large Design Report}
+    \vfill
+    \includegraphics[width=7.5in]{images/logo.png}
+    \vfill
+    \textbf{2023 Formula SAE Design Report}\\
+    \textbf{Arizona State University}\\
+    \vspace{1em}
+    Authors\\
+        Joshua Tenorio\\
+        Ryan Leigh\\
+        Tolemy Nibi
+    \vfill
+    \centering\includegraphics[width=2.5in]{images/seal.png}
+    \vfill
+\end{titlepage}
+\stepcounter{page}
+\tableofcontents
+\pagebreak
+\begin{abstract}
+    \thispagestyle{plain}
+    \addcontentsline{toc}{chapter}{Abstract}
+The SDM-23 Data Acquisition (DAQ) package provides data logging and analysis capabilities for SDM-23, Sun Devil Motorsports' challenger for the Formula SAE Michigan 2023 ICE Competition.
+It was designed and implemented over the course of the 2022-23 school year.
+\vspace{1em}
+
+The package includes (but is not limited to) capabilities to measure and log longitudinal and lateral acceleration, brake pressure and rotor temperature, steering wheel angle, and GPS location of the car.
+The data collected can be used to validate the team's designs and provide feedback for drivers and future designs.
+\vspace{1em}
+
+This report details the goals, design, and implementation of the DAQ package, as well as the results of implementation and testing and recommendations for future work.
+\end{abstract}
+
+\chapter{Introduction}
+\input{introduction.tex}
+
+\chapter{Background}
+\input{background.tex}
+
+\chapter{Methodology}
+\input{methodology.tex}
+
+\chapter{Engineering Design}
+\input{engineering-design.tex}
+
+\chapter{Results}
+\input{results.tex}
+
+\chapter{Conclusion and Future Work}
+\input{conclusion-fw.tex}
+
+
+\appendix
+
+\chapter{DAQ Interface Control Document}
+\input{controldocument.tex}
+
+\chapter{Mass Breakdown}
+\begin{center}
+\begin{tabular}{|c|c|}
+    \hline
+    Part & Mass (g) \\
+    \hline
+    Main Box & 262\\
+    IMU Box & 116\\
+    Front I/O Box & 414\\
+    Rear Shock Pot & 50\\
+    Brake Temperature Sensor & 8\\
+    Strain Gauge Amplifiers & 88\\
+    Steering Angle Sensor & 40\\
+    Brake Pressure Sensors & 66 \\
+    \hline
+    \hline
+    Total & 1044 \\
+    \hline
+\end{tabular}
+\end{center}
+
+\glsaddall % add all acronym entries
+\input{acronyms.tex}
+\printglossaries
+
+\chapter{Schematics}
+Schematics included:
+\begin{itemize}
+    \item Main Board
+    \item IMU Box Board
+    \item Front/Rear IO Board
+    \item Strain Gauge Amplifier Board
+    \item CAN Transceiver Board
+\end{itemize}
+
+\includepdf[pages={-}, landscape=true]{schematics/sdm23-main.pdf}
+\includepdf[pages={-}, landscape=true]{schematics/sdm23-imu.pdf}
+\includepdf[pages={-}, landscape=true]{schematics/sdm23-io.pdf}
+\includepdf[pages={-}, landscape=true]{schematics/sdm-sgAmplifierboard-v1.pdf}
+\includepdf[pages={-}, landscape=true]{schematics/sdm-canboard-v1.pdf}
+
+\end{document}

@@ -1,0 +1,34 @@
+During the course of the 2022-23 school year the DAQ team was able to create the foundations for a usable data acquisition system.
+Despite being perpetually behind in both the design and manufacturing phases, we were able to provide value to the rest of the team by validating aspects of the brakes and suspension designs.
+When the system was not plagued with electrical issues, most of the sensors installed in SDM-23 were relatively free of noise when compared to prior years.
+
+\section{Electrical Recommendations}
+Given that much of the failures of the DAQ system this year was attributed to soldering mistakes, more care should be taken when assembling the PCBs.
+Although using breakout boards were useful for prototyping, given that the solder joints for these boards were a common failure point, it is recommended to layout the circuitry directly onto the PCB for future designs.
+\vspace{1em}
+
+Another recommendation for future PCB design is to look into wire-board connectors, such as JST or Molex connectors, as an alternative to screw terminal blocks.
+Although the screw terminals are easy to work with, given that the DAQ system will experience vibrations (racecar duh) screw terminals are not very viable as they could become unscrewed during vehicle operation.
+Another alternative is to use connectors with PCB headers, which would completely eliminate the failure point between the enclosure connector and the PCB connector.
+
+\section{Mechanical Recommendations}
+As described in the previous chapter, future PCB enclosures could be designed to be more robust so that extra care when plugging/unplugging connectors does not need to be made.
+Additionally, the PCB enclosures were not designed to be waterproof and were generally deemed to be ``waterproof enough."
+Although this is not typically an issue for Arizona, since the competition will almost always be out of state it is recommended to design future enclosures to be waterproof.
+\vspace{1em}
+
+One last recommendation for the mechanical aspect is to work more closely with the rest of the team to design sensor mounts and for processing data.
+For instance dedicated mounting holes on the upright for the brake temperature sensor would mean that we would not have to use an existing hole or mount using velcro.
+It is also important to work with the rest of the team to better understand the mechanical systems that we are measuring and making sure they are able to make use of the data, especially when it comes to making use of the strain gauge data.
+
+\section{Software Recommendations}
+Towards the end of SDM-23's testing and validation phase, the DAQ team would go through line by line each of the code that was uploaded to the Teensy boards before a testing day to ensure there were no software faults.
+This could be extended by conducting software development on a \texttt{develop} branch in the Git repository, and merge to the \texttt{main} branch after a pull request review for a track day.
+In doing so, the DAQ team would have a stable version of the software for use during track days and be able to easily identify changes between versions.
+\vspace{1em}
+
+Much work can be done to improve the data retrieval, processing, and visualization portions of the data pipeline.
+Work is currently being conducted to make a GUI for the data retrieval scripts, which will allow non-software-minded people to easily retrieve data.
+Another project that would improve the processing and visualization steps is a data explorer GUI, which would allow a user to ``explore" a file in greater detail than viewing a summary of the file.
+Such a project should also incorporate utilities for generating laps and lap times, i.e. selecting a finish line location on the map of the GPS data, as well as for generating other common plots and data visualizations.
+An alternative to this project could also be finding some way to integrate the DAQ system to produce files for professional software such as Race Studio 3, which would save a lot of development time and also teach team members how to use software used in the motorsport industry.

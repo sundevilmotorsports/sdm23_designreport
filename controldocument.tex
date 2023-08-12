@@ -1,0 +1,63 @@
+\section{Main Box}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=3in]{images/pcbmain.png}
+    \caption{Main box PCB}
+    \label{fig:pcbmain}
+\end{figure}
+\begin{itemize}
+    \item Connects to: Haltech ECU, IMU box, GPS Antenna, damper potentiometer
+    \item Overall functions: Logging CAN data
+\end{itemize}
+\subsubsection{Physical I/O}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=7in]{images/piomain.png}
+\end{figure}
+Other physical I/O include an SMA connector for a GPS antenna and a micro USB for data retrieval and Teensy programming.
+\subsubsection{Digital Interfaces}
+N/A
+
+\section{IMU Box}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=3in]{images/pcbimu.png}
+    \caption{IMU box PCB}
+    \label{fig:pcbimu}
+\end{figure}
+\begin{itemize}
+    \item Connects to: Main box, Front I/O box
+    \item Overall functions: Reading IMU data and transmitting it over CAN
+\end{itemize}
+\subsubsection{Physical I/O}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=7in]{images/pioimu.png}
+\end{figure}
+\subsubsection{Digital Interfaces}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=7in]{images/dioimu.png}
+\end{figure}
+
+\section{Front I/O Box}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=3in]{images/pcbio.png}
+    \caption{IO box PCB}
+    \label{fig:pcbio}
+\end{figure}
+\begin{itemize}
+    \item Connects to: IMU box, steering angle sensor, brake pressure sensors, strain gauge amplifier, brake rotor temperature sensor
+    \item Overall functions: Reading sensor data and transmitting over CAN
+\end{itemize}
+\subsubsection{Physical I/O}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=5.5in]{images/pioio.png}
+\end{figure}
+\subsubsection{Digital Interfaces}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=7in]{images/dioio.png}
+\end{figure}

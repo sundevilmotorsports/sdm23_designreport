@@ -1,0 +1,73 @@
+Formula SAE is a collegiate engineering design competition where teams are tasked to design, manufacture, and compete with an Formula-style race car each year.
+Teams are judged on the business aspect, the design aspect, and the performance aspect of their car.
+An integral part of the design and performance aspect is real-world validation, for justifying and validating design choices as well as quantifying what changes to the car can provide the best performance.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=5in]{images/sdm23-unveil.JPG}
+    \caption{SDM-23 during unveil testing at Podium Club in Attesa}
+    \label{fig:sdm23-unveil}
+\end{figure}
+
+The Data Acquisition subteam of Sun Devil Motorsports, Arizona State's Formula SAE team, is responsible for producing a DAQ package that can reliably collect data.
+This report will detail the design and implementation of the DAQ package for SDM-23, Sun Devil Motorsports' 2022-23 car, as well as results of implementation and testing and recommendations for future work.
+\vspace{1em}
+
+A DAQ package can be broken up into a few high-level components:
+\begin{itemize}
+    \item Sensors which respond to physical stimuli and either transmit signals or change electrical property (e.g., resistance)
+    \item A data logger that can measure electrical signals from sensors, convert it into a useful measurement, and store it in memory
+    \item Software, typically on a PC, that can retrieve and process data from the data logger
+\end{itemize}
+The first two components make up the DAQ electrical system.
+The third comes into use when retrieving and processing data from the electrical system.
+\section{Project Goals}
+The goals for SDM-23's Data Acquisition package are to:
+\begin{itemize}
+    \item Build upon SDM-22's DAQ package concept
+    \item Provide consistent and useful data
+    \item Increase the reliability and professionalism of DAQ wiring
+\end{itemize}
+
+\section{Project Requirements}
+The following are the project requirements for the Data Acquisition package.
+System-level requirements were determined by the DAQ subteam, and sensor requirements and priorities were given by other subteam leads.
+\begin{enumerate}
+    \item System-Level Requirements
+    \begin{enumerate}
+        \item The DAQ package must be standalone; the car's operation shall not need to depend on the functionality of any DAQ component.
+        \item The DAQ electrical system shall be powered off of 12V from the ECU.
+        \item The DAQ electrical system shall allow for expansion, i.e. additional sensors or modules can be plugged into it without major changes.
+        \item Data retrieval shall be able to be accomplished by plugging a computer into the system using USB.
+        \item Any communication between microcontrollers on the car shall use CAN.
+    \end{enumerate}
+    \item Sensor Requirements
+    \begin{enumerate}
+        \item Aerodynamics
+        \begin{enumerate}
+            \item Strain gauges on push/pull rods
+            \item air speed measurements
+        \end{enumerate}
+        \item Brakes
+        \begin{enumerate}
+            \item Brake pressure
+            \item Brake rotor temperature
+            \item Brake fluid temperature
+        \end{enumerate}
+        \item Drivetrain
+        \begin{enumerate}
+            \item Strain gauges on drivetrain components
+        \end{enumerate}
+        \item Suspension
+        \begin{enumerate}
+            \item 3 axis gyroscope and accelerometer
+            \item Multiple accelerometers
+            \item Linear potentiometers
+        \end{enumerate}
+        \item Systems
+        \begin{enumerate}
+            \item Steering wheel angle
+            \item Steering wheel force
+        \end{enumerate}
+    \end{enumerate}
+\end{enumerate}
+
